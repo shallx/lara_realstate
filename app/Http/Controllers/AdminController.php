@@ -22,6 +22,8 @@ class AdminController extends Controller
     public function profile()
     {
         $id = Auth::user()->id;
+        $profileData = User::find($id);
+        return view('admin.admin_profile_view', compact('profileData')); // profileData takes value from $profileData somehow
     }
 
     public function logout(Request $request): RedirectResponse
